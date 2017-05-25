@@ -1,0 +1,357 @@
+<!doctype html>
+<html ⚡>
+
+<head>
+    <meta charset="utf-8">
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+    <script async custom-element="amp-carousel" src="https://cdn.ampproject.org/v0/amp-carousel-0.1.js"></script>
+    <script async custom-element="amp-form" src="https://cdn.ampproject.org/v0/amp-form-0.1.js"></script>
+    <script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
+    <script async custom-element="amp-sidebar" src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js"></script>
+    <script async custom-template="amp-mustache" src="https://cdn.ampproject.org/v0/amp-mustache-0.1.js"></script>
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+    <style amp-custom>
+
+    amp-carousel {
+        margin: 0;
+    }
+
+	.clearfix { *zoom: 1; }
+
+	.clearfix:before, .clearfix:after { display: table; content: ' '; }
+
+	.clearfix:after { clear: both; }
+
+	.f-left{ float: left }
+    .f-right{ float: right }
+
+    a{
+    	color: #0095da;
+    	text-decoration: none;
+    }
+
+    .header {
+        position: relative;
+        box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12);
+        padding: .5em;
+        background-color: #0095da;
+        text-align: center;
+    }
+    
+    .header .menu {
+        position: absolute;
+        top: 0;
+        left: 0;
+        font-size: 18px;
+        font-weight: 700;
+        color: white;
+        text-transform: uppercase;
+        padding: 13px;
+    }
+    
+    .header form {
+        padding: 0;
+    }
+    
+    .header input::-webkit-search-decoration,
+    .header input::-webkit-search-cancel-button {
+        display: none;
+    }
+    
+    .search__wrapper{
+    	margin-top: 1em;
+    }
+    .search__btn {
+    	float: left;
+        background-color: #0d5e83;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-image: -webkit-image-set( url('/images/search24.png') 1x, url('/images/search48.png') 2x);
+        border: 0 none;
+        height: 45px;
+        width: 15%;
+        -webkit-appearance: none;
+        border-radius: 0;
+        -moz-border-top-right-radius: 4px;
+        -moz-border-bottom-right-radius: 4px;
+        -webkit-border-top-right-radius: 4px;
+        -webkit-border-bottom-right-radius: 4px;
+        border-top-right-radius: 4px;
+        border-bottom-right-radius: 4px;
+    }
+    
+    .search__input {
+    	float: left;
+        background: #ededed;
+        padding: 0 8px;
+        width: 85%;
+        height: 45px;
+        font-family: inherit;
+        font-size: 100%;
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        -webkit-appearance: none;
+        border: solid 0px #ccc;
+        border-radius: 0;
+        -moz-border-top-left-radius: 4px;
+        -moz-border-bottom-left-radius: 4px;
+        -webkit-border-top-left-radius: 4px;
+        -webkit-border-bottom-left-radius: 4px;
+        border-top-left-radius: 4px;
+        border-bottom-left-radius: 4px;
+        -webkit-transition: all .9s;
+        -moz-transition: all .9s;
+        transition: all .9s ease;
+    }
+    
+    .search__input:focus {
+        box-sizing: border-box;
+        background-color: #fff;
+        -webkit-box-shadow: 0 0 5px rgba(109, 207, 246, .5);
+        -moz-box-shadow: 0 0 5px rgba(109, 207, 246, .5);
+        box-shadow: 0 0 5px rgba(109, 207, 246, .5);
+        outline: none;
+    }
+    
+    .header input:-moz-placeholder,
+    .header input::-webkit-input-placeholder {
+        color: #999;
+    }
+    
+    .header input:focus + #sample-logo {
+        visibility: hidden;
+        opacity: 0;
+        transition: visibility 0s 0.7s, opacity 0.7s ease;
+    }
+    
+    .header input + #sample-logo {
+        visibility: visible;
+        opacity: 1;
+        transition: opacity 1.5s ease;
+    }
+    
+    @media (min-width: 600px) {
+        .header input[type=search] {
+            width: 100px;
+        }
+        .header input[type=search]:focus {
+            width: 600px;
+        }
+    }
+    
+    .sidebar {
+        background-color: #fff;
+        width: 50%;
+        padding-top: 1em;
+    }
+    
+    .sidebar__link {
+        display: block;
+        padding: .5em 1em;
+    }
+    
+    .product{
+    	margin: 1em .5em;
+    	display: table;
+    	width: 100%;
+    }    
+    .brand, .name{
+    	display: table-cell;
+    }
+    .brand{
+    	vertical-align: middle;
+    	padding: 1px 2px;
+	    background-color: #eee;
+	    text-align: center;
+	    border-radius: 50%;
+    }
+    .name{
+    	line-height: 20px;
+	    font-weight: 400;
+	    font-size: 15px;    
+	    vertical-align: top;
+	    padding-left: 10px;
+    }
+    .pad-lr-5{
+    	padding: 0 .5em;
+    }
+
+    .price__orange{
+    	font-size: 22px;
+	    font-weight: 700;
+	    display: inline-block;
+	    color: #f7931e;
+	    margin: 0;
+    }
+
+    .footer{
+	    position: fixed;
+	    vertical-align: top;
+	    bottom: 0;
+	    width: 100%;
+	    left: 0;
+	    z-index: 89;
+    }
+    .addtocart{
+    	background-color: #f7931e;
+    	color: #fff;    
+    	padding: 25px 0;
+	    display: block;
+	    border-radius: 2px;
+	    width: 100%;
+	    border: none;
+	    outline: 0;
+	    text-align: center;
+    }
+    </style>
+    <style amp-boilerplate>
+    body {
+        -webkit-animation: -amp-start 8s steps(1, end) 0s 1 normal both;
+        -moz-animation: -amp-start 8s steps(1, end) 0s 1 normal both;
+        -ms-animation: -amp-start 8s steps(1, end) 0s 1 normal both;
+        animation: -amp-start 8s steps(1, end) 0s 1 normal both
+    }
+    
+    @-webkit-keyframes -amp-start {
+        from {
+            visibility: hidden
+        }
+        to {
+            visibility: visible
+        }
+    }
+    
+    @-moz-keyframes -amp-start {
+        from {
+            visibility: hidden
+        }
+        to {
+            visibility: visible
+        }
+    }
+    
+    @-ms-keyframes -amp-start {
+        from {
+            visibility: hidden
+        }
+        to {
+            visibility: visible
+        }
+    }
+    
+    @-o-keyframes -amp-start {
+        from {
+            visibility: hidden
+        }
+        to {
+            visibility: visible
+        }
+    }
+    
+    @keyframes -amp-start {
+        from {
+            visibility: hidden
+        }
+        to {
+            visibility: visible
+        }
+    }
+    </style>
+    <noscript>
+        <style amp-boilerplate>
+        body {
+            -webkit-animation: none;
+            -moz-animation: none;
+            -ms-animation: none;
+            animation: none
+        }
+        </style>
+    </noscript>
+</head>
+
+<body>
+    <amp-sidebar id="drawermenu" layout="nodisplay" class="sidebar">
+        <a class="sidebar__link" href="https://www.blibli.com/">Beranda</a>
+        <a class="sidebar__link" href="https://www.blibli.com/panduan-belanja">Panduan Blibli.com</a>
+        <a class="sidebar__link" href="https://www.blibli.com/pages/hubungi-kami">Hubungi Kami</a>
+        <a class="sidebar__link" href="https://www.blibli.com/pages/merchant-corner">Jual di Blibli.com</a>
+    </amp-sidebar>
+
+    <div class="header">
+        <a class="menu" on="tap:drawermenu.toggle">
+            <amp-img srcset="/images/menu24.png 1x, /images/menu48.png 2x" width="24" height="24" alt="navigation">
+            </amp-img>
+        </a>
+        <a href="https://www.blibli.com/">
+            <img src="https://www.static-src.com/travel/2.2.1/resources/common/images/blibli_travel_white.png" alt="">
+        </a>
+
+	    <div class="search__wrapper">
+	        <form method="GET" action="https://www.blibli.com/search?" target="_top" class="clearfix">
+	            <input class="search__input" type="search" name="s" placeholder="Apa yang Anda cari hari ini?">
+	            <input class="search__btn" type="submit" value="">
+	        </form>
+	    </div>
+    </div>
+
+    <div class="product">
+        <amp-img srcset="https://www.static-src.com/4.11.0/resources/images/assets/default_brand_icon_mobile.png" width="55" height="55" alt="brand" class="brand">
+        </amp-img>
+    	<div class="name"> 
+    		Samsung Galaxy A5 2017 New Edition SM-A520 Smartphone - Black [32 GB/3 GB]
+    	</div>
+    </div>
+
+    <div class="clearfix pad-lr-5">
+    	<div class="f-left">
+    		Brand : <a href="https://www.blibli.com/anchor/samsung">Samsung</a>
+    	</div>
+    	<div class="f-right">
+    		<a href="#write-review">Tulis Ulasan</a>
+    	</div>
+    </div>
+
+    <amp-carousel class="product__img" width="290" height="290" layout="responsive" type="slides" autoplay>
+        <a href="#">
+            <amp-img src="https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//1270/samsung_samsung-galaxy-a5-2017-new-edition-sm-a520-smartphone---black---3gb---32-gb--_full03.jpg" layout="fill" alt="product 1" attribution="visualhunt"></amp-img>
+        </a>
+        <a href="#">
+            <amp-img src="https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//1271/samsung_samsung-galaxy-a5-2017-new-edition-sm-a520-smartphone---black---3gb---32-gb--_full04.jpg" layout="fill" alt="product 3" attribution="visualhunt"></amp-img>
+        </a>
+        <a href="#">
+            <amp-img src="https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//1272/samsung_samsung-galaxy-a5-2017-new-edition-sm-a520-smartphone---black---3gb---32-gb--_full05.jpg" layout="fill" alt="product 2" attribution="visualhunt"></amp-img>
+        </a>
+    </amp-carousel>
+
+    <div class="clearfix pad-lr-5">
+    	Harga : <span class="price__orange">Rp 4,586,888</span>
+    </div>
+
+    <footer class="footer">
+    	<a class="addtocart" href="#addtocart">
+    		BELI SEKARANG
+    	</a>
+    </footer>
+
+    <amp-analytics type="googleanalytics">
+        <script type="application/json">
+        {
+            "vars": {
+                "account": "UA-80609902-1"
+            },
+            "triggers": {
+                "default pageview": {
+                    "on": "visible",
+                    "request": "pageview",
+                    "vars": {
+                        "title": "{{title}}"
+                    }
+                }
+            }
+        }
+        </script>
+    </amp-analytics>
+</body>
+
+</html>

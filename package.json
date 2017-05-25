@@ -1,0 +1,29 @@
+{
+  "name": "blibli-amp-concept",
+  "description": "Blibli.com AMP Concept And Research",
+  "version": "0.0.1",
+  "keywords": [
+  ],
+  "homepage": "https://mazipan.github.io/blibli-amp-concept",
+  "author": "Irfan Maulana (https://github.com/mazipan/)",
+  "scripts": {
+    "dev": "gulp build:dev"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mazipan/blibli-amp-concept.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mazipan/blibli-amp-concept/issues"
+  },
+  "engines": {
+    "node": ">=4"
+  },
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "browser-sync": "^2.18.8",
+    "gulp": "^3.9.1",
+    "gulp-connect": "^5.0.0"
+  }
+}
