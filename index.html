@@ -1,209 +1,418 @@
 <!doctype html>
-<html ⚡>
+<html amp lang="en">
 
 <head>
     <meta charset="utf-8">
-    <script async src="https://cdn.ampproject.org/v0.js"></script>
-    <script async custom-element="amp-carousel" src="https://cdn.ampproject.org/v0/amp-carousel-0.1.js"></script>
-    <script async custom-element="amp-form" src="https://cdn.ampproject.org/v0/amp-form-0.1.js"></script>
-    <script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
-    <script async custom-element="amp-sidebar" src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js"></script>
-    <script async custom-template="amp-mustache" src="https://cdn.ampproject.org/v0/amp-mustache-0.1.js"></script>
     <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+    
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+    <script async custom-element="amp-form" 
+    		src="https://cdn.ampproject.org/v0/amp-form-0.1.js"></script>
+    <script async custom-element="amp-analytics" 
+    		src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
+    <script async custom-element="amp-sidebar" 
+    		src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js"></script>
+    <script async custom-template="amp-mustache" 
+    		src="https://cdn.ampproject.org/v0/amp-mustache-0.1.js"></script>
+    <script async custom-element="amp-selector" 
+    		src="https://cdn.ampproject.org/v0/amp-selector-0.1.js"></script>
+    <script async custom-element="amp-carousel" 
+    		src="https://cdn.ampproject.org/v0/amp-carousel-0.1.js"></script>
+    <script async custom-element="amp-social-share" 
+    		src="https://cdn.ampproject.org/v0/amp-social-share-0.1.js"></script>
+
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+
     <style amp-custom>
+      body {
+        font-size: 14px;
+        font-family: 'Lato', sans-serif;
+        background-color: #eeeeee;
+      }
 
-    amp-carousel {
+      a{
+        color: #0095da;
+        text-decoration: none;
+        cursor: pointer;
+      }
+      hr {
+        border: none;
+        height: 1px;
         margin: 0;
-    }
+        background-color: #ddd;
+      }
+      section {
+        margin-bottom: 30px;
+        background: #fff;
+        box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.24);
+        -moz-box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.24);
+        -webkit-box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.24);
+      }
+      section:last-of-type {
+        margin-bottom: 0;
+        box-shadow: none;
+        -moz-box-shadow: none;
+        -webkit-box-shadow: none;
+      }
 
-	.clearfix { *zoom: 1; }
+      .clearfix { *zoom: 1; }
+      .clearfix:before, .clearfix:after { display: table; content: ' '; }
+      .clearfix:after { clear: both; }
 
-	.clearfix:before, .clearfix:after { display: table; content: ' '; }
+      .f-left{ float: left }
+      .f-right{ float: right }
 
-	.clearfix:after { clear: both; }
+      .text-center {text-align: center;}
+      .font-16 {font-size: 16px;}
+      .blue {color: #0096D9;}
+      .orange {color: #F7931E;}
+      .no-bg {background: none;}
 
-	.f-left{ float: left }
-    .f-right{ float: right }
+      .border-top {border-top: #ccc 1px solid;}
+      .border-btm {border-bottom: #ccc 1px solid;}
 
-    a{
-    	color: #0095da;
-    	text-decoration: none;
-    }
+      .table {display: table;}
+      .table-cell {
+        display: table-cell;
+        vertical-align: middle;
+        padding-right: 10px;
+      }
 
-    .header {
-        position: relative;
-        box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12);
-        padding: .5em;
-        background-color: #0095da;
-        text-align: center;
-    }
-    
-    .header .menu {
-        position: absolute;
-        top: 0;
-        left: 0;
-        font-size: 18px;
-        font-weight: 700;
-        color: white;
-        text-transform: uppercase;
-        padding: 13px;
-    }
-    
-    .header form {
-        padding: 0;
-    }
-    
-    .header input::-webkit-search-decoration,
-    .header input::-webkit-search-cancel-button {
-        display: none;
-    }
-    
-    .search__wrapper{
-    	margin-top: 1em;
-    }
-    .search__btn {
-    	float: left;
-        background-color: #0d5e83;
-        background-position: center;
-        background-repeat: no-repeat;
-        background-image: -webkit-image-set( url('https://mazipan.github.io/blibli-amp-concept/images/search24.png') 1x, url('https://mazipan.github.io/blibli-amp-concept/images/search48.png') 2x);
-        border: 0 none;
-        height: 45px;
-        width: 15%;
-        -webkit-appearance: none;
-        border-radius: 0;
-        -moz-border-top-right-radius: 4px;
-        -moz-border-bottom-right-radius: 4px;
-        -webkit-border-top-right-radius: 4px;
-        -webkit-border-bottom-right-radius: 4px;
-        border-top-right-radius: 4px;
-        border-bottom-right-radius: 4px;
-    }
-    
-    .search__input {
-    	float: left;
-        background: #ededed;
-        padding: 0 8px;
-        width: 85%;
-        height: 45px;
-        font-family: inherit;
-        font-size: 100%;
-        -moz-box-sizing: border-box;
-        -webkit-box-sizing: border-box;
-        box-sizing: border-box;
-        -webkit-appearance: none;
-        border: solid 0px #ccc;
-        border-radius: 0;
-        -moz-border-top-left-radius: 4px;
-        -moz-border-bottom-left-radius: 4px;
-        -webkit-border-top-left-radius: 4px;
-        -webkit-border-bottom-left-radius: 4px;
-        border-top-left-radius: 4px;
-        border-bottom-left-radius: 4px;
-        -webkit-transition: all .9s;
-        -moz-transition: all .9s;
-        transition: all .9s ease;
-    }
-    
-    .search__input:focus {
-        box-sizing: border-box;
-        background-color: #fff;
-        -webkit-box-shadow: 0 0 5px rgba(109, 207, 246, .5);
-        -moz-box-shadow: 0 0 5px rgba(109, 207, 246, .5);
-        box-shadow: 0 0 5px rgba(109, 207, 246, .5);
-        outline: none;
-    }
-    
-    .header input:-moz-placeholder,
-    .header input::-webkit-input-placeholder {
-        color: #999;
-    }
-    
-    .header input:focus + #sample-logo {
-        visibility: hidden;
-        opacity: 0;
-        transition: visibility 0s 0.7s, opacity 0.7s ease;
-    }
-    
-    .header input + #sample-logo {
-        visibility: visible;
-        opacity: 1;
-        transition: opacity 1.5s ease;
-    }
-    
-    @media (min-width: 600px) {
-        .header input[type=search] {
-            width: 100px;
-        }
-        .header input[type=search]:focus {
-            width: 600px;
-        }
-    }
-    
-    .sidebar {
-        background-color: #fff;
-        width: 50%;
-        padding-top: 1em;
-    }
-    
-    .sidebar__link {
+      .arrow,.check {
+        display: inline-block;
+        vertical-align: middle;
+      }
+      .arrow {
+        width: 7px;
+        height: 7px;
+        margin-top: 3px;
+        border-top: #ccc 3px solid;
+        border-right: #ccc 3px solid;
+        transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+        -webkit-transform: rotate(45deg);
+      }
+      .check, .close {
+        width: 16px;
+        height: 16px;
+        margin-left: 3px;
+        margin-bottom: 2px;
+        display: inline-block;
+      }
+      .check:before, .close:before {
+        transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+        -webkit-transform: rotate(45deg);
+      }
+      .check:before {
+        content: '';
+        width: 4px;
+        height: 8px;
         display: block;
-        padding: .5em 1em;
-    }
-    
-    .product{
-    	margin: 1em .5em;
-    	display: table;
-    	width: 100%;
-    }    
-    .brand, .name{
-    	display: table-cell;
-    }
-    .brand{
-    	vertical-align: middle;
-    	padding: 1px 2px;
-	    background-color: #eee;
-	    text-align: center;
-	    border-radius: 50%;
-    }
-    .name{
-    	line-height: 20px;
-	    font-weight: 400;
-	    font-size: 15px;    
-	    vertical-align: top;
-	    padding-left: 10px;
-    }
-    .pad-lr-5{
-    	padding: 0 .5em;
-    }
+        margin-left: 5px;
+        margin-top: 2px;
+        border-right: #00b35e 2px solid;
+        border-bottom: #00b35e 2px solid;
+      }
+      .close:before {
+        content: '+';
+        line-height: 1;
+        display: block;
+      }
+      .button {
+        display: inline-block;
+        padding: 10px 20px;
+        outline: none;
+        border: none;
+        text-align: center;
+        text-decoration: none;
+        cursor: pointer;
+        -webkit-appearance: none;
+      }      
+      .button--plain { background: #fff; color: #0096d9; }
+      .button--orange { background: #F7931E; color: #fff; }
 
-    .price__orange{
-    	font-size: 22px;
-	    font-weight: 700;
-	    display: inline-block;
-	    color: #f7931e;
-	    margin: 0;
-    }
+      .block {
+        display: block;
+        padding:15px 18px;
+      }
 
-    .footer{
-	    position: fixed;
-	    vertical-align: top;
-	    bottom: 0;
-	    width: 100%;
-	    left: 0;
-	    z-index: 89;
-    }
-    .addtocart{
-    	background-color: #f7931e;
-    	color: #fff;    
-    	padding: 25px 0;
-	    display: block;
-	    border-radius: 2px;
-	    width: 100%;
-	    border: none;
-	    outline: 0;
-	    text-align: center;
-    }
+      .product {}
+      .product__heading {}
+      .product__brand-img {
+        border: #ccc 1px solid;
+        border-radius: 50%;
+        -ms-border-radius: 50%;
+        -moz-border-radius: 50%;
+        -webkit-border-radius: 50%;
+        padding: 5px;
+      }
+      .product__name {
+        padding-left: 10px;
+        font-size: 16px;
+      }
+      .product__brand-review {
+        font-size: 12px;
+        margin-top: 10px;
+      }
+      .product__review span {
+        display: inline-block;
+        vertical-align: middle;
+        margin-left: 4px;
+      }
+      .product__price {
+        line-height: 180%;
+        position: relative;
+      }
+      /*.product__price span {display: inline-block;}
+      .product__price-label {width: 80px;}*/
+      .product__price--first {
+        color:#999;
+        font-size: 12px;
+        text-decoration: line-through;
+      }
+      .product__price--end {
+        font-size: 22px;
+        color: #f7931e;
+        font-weight: bold;
+        vertical-align: bottom;
+      }
+      .product__price-discount {
+        font-size: 16px;
+        color: #f8011e;
+        font-weight: bold;
+        margin-left: 5px;
+      }
+      .product__shipping {
+        position: absolute;
+        right: 0;
+        top: 0;
+      }
+      .product__shipping amp-img {
+        vertical-align: top;
+        margin-left: 5px;
+      }
+      .product__offer {
+        border-top: #ccc 1px solid;
+        border-bottom: #ccc 1px solid;
+        font-size: 16px;
+      }
+      .product__stock {
+        background-color: #fff;
+      }
+      .product__status {
+        font-size: 16px;
+        font-weight: bold;
+        text-align: center;
+      }
+      .product__status .icon {
+        border-radius: 50%;
+        -ms-border-radius: 50%;
+        -moz-border-radius: 50%;
+        -webkit-border-radius: 50%;
+      }
+      .product__status--available {color: #00b35e;}
+      .product__status--available .check {background-color: #00b35e;}
+      .product__status--available .check:before {border-color: #fff;}
+
+      .product__status--unavailable {color: #f8011e;}
+      .product__status--unavailable .close {background-color: #f8011e;}
+      .product__status--unavailable .close:before {color: #fff;}
+      .product__size {
+        margin-top: 20px;
+        padding: 0;
+        text-align: center;
+      }
+      .product__size li {
+        border: 1px #ccc solid;
+        width: 56px;
+        font-weight: bold;
+        text-align: center;
+        display: inline-block;
+        padding: 10px 0;
+        margin: 5px;
+      }
+      .product__size li.heading {position: relative;}
+      .product__size li.heading:before {
+        content: 'Ukuran';
+        color: #666;
+        font-size: 16px;
+        font-weight: normal;
+        position: absolute;
+        top: -30px;
+        left: 0;
+      }
+      .product__size .min-stock, .product__size .no-stock {
+        border-color: #eee;
+        background-color: #eee;
+      }
+      .product__size .no-stock {text-decoration: line-through;}
+
+      .product__color {}
+      .product__color-label {color: #666;}
+      .product__color-select {border: none;}
+      .product__color-select option span {
+        color: red;
+      }
+      .product__others {padding: 20px 10px;}
+      .product__others-heading {
+        color: #666;
+        font-size: 18px;
+        margin-bottom: 20px;
+      }
+      .product__info {
+        background-color: #fff;
+      }
+      .product__item {}
+      .product__item a {
+        color: #333;
+      }
+      .product__item-wrapper {
+        width: 143px;
+        height: 215px;
+        background: #fff;
+        padding: 8px;
+        margin: 3px;
+        text-align: center;
+        border-radius: 2px;
+        -ms-border-radius: 2px;
+        -moz-border-radius: 2px;
+        -webkit-border-radius: 2px;
+        box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.14);
+        -moz-box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.14);
+        -webkit-box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.14);
+      }
+      .product__item-info {
+        text-align: left;
+      }
+      .product__item-name {
+        width: 128px;
+        color: #333;
+        font-size: 12px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        word-wrap: break-word;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        font-weight: normal;
+        max-height: 32px;
+      }
+      .product__item-price {
+        margin-top: 10px;
+      }
+      .product__item-price--normal {
+        color: #666;
+        font-size: 11px;
+        text-decoration: line-through;
+      }
+      .product__item-price--discount {
+        color: #f66f04;
+      }
+
+
+      /*tab - start*/
+      .ampTabContainer {
+        display: flex;
+        flex-wrap: wrap;
+      }
+      
+      div.tabButton[selected] {
+        color: #fff;
+        outline: none;
+      }
+      div.tabButton[selected] span {
+        border-bottom: #f7931e 3px solid;
+      }
+      
+      .tabButton {
+        list-style: none;
+        flex-grow: 1;
+        text-align: center;
+        cursor: pointer;
+        color: #eaeaea;
+        background-color: #0096d9;
+      }
+      .tabButton span {
+        padding: 10px;
+        display: block;
+        font-size: 16px;
+      }
+
+      .tabContent {
+        display: none;
+        width: 100%;
+        order: 1; /* must be greater than the order of the tab buttons to flex to the next line */
+      }
+      
+      .tabButton[selected]+.tabContent {
+        display: block;
+      }
+
+      /* For example below (not required) */
+      .itemCustom {
+        border: 1px solid #000;
+        /*height: 280px;
+        width: 380px;*/
+        margin: 10px;
+        text-align: center;
+        padding-top: 140px;
+      }
+      /*tab - end*/
+
+      .product__merchant {}
+      .product__merchant-label {
+        font-size: 16px;
+        color: #ccc;
+        margin-bottom: 16px;
+      }
+      .product__merchant-name {
+        font-size: 16px;
+        font-weight: bold;
+        color: #0096d9;
+        margin-bottom: 12px;
+      }
+      .product__merchant-rating {
+        margin-bottom: 12px;
+      }
+      .product__merchant-rating-star, .product__merchant-rating-label {
+        display: inline-block;
+        vertical-align: middle;
+      }
+      .product__merchant-rating-star {line-height: 0;}
+      .product__merchant-rating-label {color: #ccc;}
+      .product__merchant-rating-label span {color: #333;}
+      .product__merchant-location {color: #333;}
+      .product__merchant-location-detail {background-color: #eee;}
+
+      .product__action {
+        position: fixed;
+        bottom: 0;
+        background-color: #fff;
+        display: block;
+        width: 100%;
+        box-shadow: 0px 1px 5px 2px rgba(0, 0, 0, 0.24);
+        -moz-box-shadow: 0px 1px 5px 2px rgba(0, 0, 0, 0.24);
+        -webkit-box-shadow: 0px 1px 5px 2px rgba(0, 0, 0, 0.24);
+      }
+      .product__action .button {
+        font-size: 18px;
+        padding-left: 0;
+        padding-right: 0;
+        margin-bottom: -1px;
+      }
+      .product__action .button--orange {width: 58%;}
+      .product__action .button--plain {width: 40%;}
+      .product__action .button--plain span {
+        display: inline-block;
+        vertical-align: middle;
+      }
+      .product__action .button--plain .arrow {
+        border-color: #0096d9;
+        border-width: 1.5px;
+        margin-top: -1px;
+        margin-left: 10px;
+      }
+
     </style>
     <style amp-boilerplate>
     body {
@@ -268,90 +477,289 @@
         }
         </style>
     </noscript>
-</head>
+  </head>
+  <body>
+  <article class="product">
+    <section>
+      <div class="block">
+        <!-- Heading - start -->
+        <div class="product__heading">
+          <div class="table">
+            <amp-img srcset="https://www.static-src.com/wcsstore/Indraprastha/images/brandlogo/BR-M036969-03451/vespa-logo.png" width="55" height="55" alt="brand" class="product__brand-img table-cell"></amp-img>
+            <span class="product__name table-cell">
+              Ihotku Multi-function Smart Diaper Bag
+            </span>
+          </div>
+          <div class="product__brand-review clearfix">
+            <div class="product__brand-name f-left">
+              Brand: <a href="">VESPA</a>
+            </div>
+            <div class="product__review f-right">
+              <span>
+                <amp-img srcset="https://www.static-src.com/4.11.3/resources/images/assets/ic-rating.png" width="15" height="15"></amp-img>
+                <amp-img srcset="https://www.static-src.com/4.11.3/resources/images/assets/ic-rating.png" width="15" height="15"></amp-img>
+                <amp-img srcset="https://www.static-src.com/4.11.3/resources/images/assets/ic-rating.png" width="15" height="15"></amp-img>
+                <amp-img srcset="https://www.static-src.com/4.11.3/resources/images/assets/ic-rating.png" width="15" height="15"></amp-img>
+              </span>
+              <span>
+                <a class="product__review-label">1 ulasan</a>
+              </span>
+            </div>
+          </div>
+        </div>
+        <!-- Heading - end -->
 
-<body>
-    <amp-sidebar id="drawermenu" layout="nodisplay" class="sidebar">
-        <a class="sidebar__link" href="https://www.blibli.com/">Beranda</a>
-        <a class="sidebar__link" href="https://www.blibli.com/panduan-belanja">Panduan Blibli.com</a>
-        <a class="sidebar__link" href="https://www.blibli.com/pages/hubungi-kami">Hubungi Kami</a>
-        <a class="sidebar__link" href="https://www.blibli.com/pages/merchant-corner">Jual di Blibli.com</a>
-    </amp-sidebar>
+        <!-- Slider - start -->
+        <div class="product__carousel">
+          <amp-carousel width="290" height="290" layout="responsive" type="slides" autoplay>
+              <a href="#">
+                  <amp-img srcset="https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//1270/samsung_samsung-galaxy-a5-2017-new-edition-sm-a520-smartphone---black---3gb---32-gb--_full03.jpg" layout="fill" alt="product 1" attribution="visualhunt"></amp-img>
+              </a>
+              <a href="#">
+                  <amp-img srcset="https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//1271/samsung_samsung-galaxy-a5-2017-new-edition-sm-a520-smartphone---black---3gb---32-gb--_full04.jpg" layout="fill" alt="product 3" attribution="visualhunt"></amp-img>
+              </a>
+              <a href="#">
+                  <amp-img srcset="https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//1272/samsung_samsung-galaxy-a5-2017-new-edition-sm-a520-smartphone---black---3gb---32-gb--_full05.jpg" layout="fill" alt="product 2" attribution="visualhunt"></amp-img>
+              </a>
+          </amp-carousel>
+        </div>
+        <!-- Slider - end -->
 
-    <div class="header">
-        <a class="menu" on="tap:drawermenu.toggle">
-            <amp-img srcset="https://mazipan.github.io/blibli-amp-concept/images/menu24.png 1x, https://mazipan.github.io/blibli-amp-concept/images/menu48.png 2x" width="24" height="24" alt="navigation">
-            </amp-img>
+        <!-- Price - start -->
+        <div class="product__price delivery__free">
+          <span class="product__price--first">Rp 200.000</span><br>
+          <span class="product__price--end">Rp 1.800.000</span> <span class="product__price-discount"> (30%)</span>
+          <span class="product__shipping">
+            <amp-img srcset="https://www.static-src.com/siva/asset//04_2017/GoSend_Logo_21.png" width="60" height="11"></amp-img>
+            <amp-img srcset="images/ios-free-shipping-label.png" width="50" height="25"></amp-img>
+          </span>
+        </div>
+        <!-- Price - end -->
+      </div>
+      
+      <!-- Offer - start -->
+      <div class="product__offer">
+        <a class="clearfix block" href="">
+          <span class="f-left">Lihat 4 penawaran lainnya</span>
+          <i class="f-right arrow">&nbsp;</i>
         </a>
-        <a href="https://www.blibli.com/">
-            <img src="https://www.static-src.com/travel/2.2.1/resources/common/images/blibli_travel_white.png" alt="">
-        </a>
+      </div>
+      <!-- Offer - end -->
+      
+      <!-- Share - start -->
+      <div class="product__share block text-center">
+          <amp-social-share type="twitter"
+            width="45"
+            height="33"
+            data-param-url="AMPDOC_URL#post1"></amp-social-share>
+          <amp-social-share type="facebook"
+            width="45"
+            height="33"
+            data-attribution="254325784911610"
+            data-param-url="AMPDOC_URL#post1"></amp-social-share>
+          <amp-social-share type="gplus"
+            width="45"
+            height="33"
+            data-param-url="AMPDOC_URL#post1"></amp-social-share>
+          <amp-social-share type="email"
+            width="45"
+            height="33"
+            data-param-url="AMPDOC_URL#post1"></amp-social-share>
+          <amp-social-share type="pinterest"
+            width="45"
+            height="33"
+            data-param-url="AMPDOC_URL#post1"></amp-social-share>
+      </div>
+      <!-- Share - end -->
+    </section>
 
-	    <div class="search__wrapper">
-	        <form method="GET" action="https://www.blibli.com/search?" target="_top" class="clearfix">
-	            <input class="search__input" type="search" name="s" placeholder="Apa yang Anda cari hari ini?">
-	            <input class="search__btn" type="submit" value="">
-	        </form>
-	    </div>
+    <section>
+      <!-- Stock - start -->
+      <div class="product__stock">
+        <div class="block">
+          <div class="product__status product__status--available">Stock Tersedia <span class="icon check"></span></div>
+          <div class="product__status product__status--unavailable">Stock Tidak Tersedia <span class="icon close"></span></div>
+        </div>
+        <hr>
+        <div class="block">
+          <ul class="product__size">
+            <li class="heading min-stock">XS</li>
+            <li>S</li>
+            <li>m</li>
+            <li>l</li>
+            <li>XL</li>
+            <li class="no-stock">XXL</li>
+          </ul>
+        </div>
+        <hr>
+        <div class="product__color block clearfix">
+          <div class="product__color-label f-left">Warna</div>
+          <select class="product__color-select f-right">
+            <option>Pilih Warna</option>
+            <option>Merah</option>
+            <option>Kuning</option>
+            <option>Hijau</option>
+          </select>
+        </div>
+      </div>
+      <!-- Stock - end -->
+    </section>
+
+    <section>
+      <!-- Information - start -->
+      <div class="product__info">
+        <amp-selector role="tablist"
+          layout="container"
+          class="ampTabContainer">
+          <div role="tab" class="tabButton" option="a" selected><span>Deskripsi</span></div>
+          <div role="tabpanel" class="tabContent">
+            <div class="block">
+              Tab one content... 
+            </div>
+            <!-- More Info - start -->
+            <div class="border-top">
+              <a class="clearfix block" href="">
+                <span class="f-left font-16">Lihat deskripsi produk lebih lengkap</span>
+                <i class="f-right arrow">&nbsp;</i>
+              </a>
+            </div>
+            <!-- More Info - end -->
+          </div>
+
+          <div role="tab" class="tabButton" option="b"><span>Spesifikasi</span></div>
+          <div role="tabpanel" class="tabContent block">
+            Tab two content... 
+          </div>
+
+          <div role="tab" class="tabButton" option="c"><span>Review</span></div>
+          <div role="tabpanel" class="tabContent block">
+            Tab three content... 
+          </div>
+        </amp-selector>
+
+      </div>
+      <!-- Information - end -->
+    </section>
+
+    <section>
+      <!-- Merchant - start -->
+      <div class="product__merchant">
+        <div class="block">
+          <div class="product__merchant-label">
+            Disediakan dan dikirim oleh:
+          </div>
+          <div class="product__merchant-name">
+            Nama Merchant
+          </div>
+          <div class="product__merchant-rating">
+            <span class="product__merchant-rating-star">
+              <amp-img srcset="https://www.static-src.com/4.11.3/resources/images/assets/ic-rating.png" width="15" height="15"></amp-img>
+              <amp-img srcset="https://www.static-src.com/4.11.3/resources/images/assets/ic-rating.png" width="15" height="15"></amp-img>
+              <amp-img srcset="https://www.static-src.com/4.11.3/resources/images/assets/ic-rating.png" width="15" height="15"></amp-img>
+              <amp-img srcset="https://www.static-src.com/4.11.3/resources/images/assets/ic-rating.png" width="15" height="15"></amp-img>
+            </span>
+            <a class="product__merchant-rating-label">Rating <span class="">4,8</span>/5</a>
+          </div>
+          <div class="table">
+            <span class="table-cell">Deli, Timor Leste</span> 
+            <span class="table-cell"><amp-img srcset="images/ios-free-shipping-label.png" width="20" height="20"></amp-img></span>
+          </div>
+        </div>
+        <div class="product__merchant-location">
+          <div class="product__merchant-location-detail table block">
+            <span class="table-cell">
+              <amp-img srcset="images/ios-free-shipping-label.png" width="50" height="50"></amp-img>
+            </span>
+            <span class="table-cell">Ngelmu iku kelakone kanthi laku Lekase lawan kas Tegese kas nyantosani
+              Setya budya pengekesing dur angkara <a href="">Panduan Pengiriman Blibli</a>
+          </div>
+        </div>
+        <a class="clearfix block" href="">
+          <span class="f-left font-16">Lihat 4 penawaran lainnya</span>
+          <i class="f-right arrow">&nbsp;</i>
+        </a>
+      </div>
+      <!-- Merchant - end -->
+    </section>
+
+    <section class="no-bg">
+      <div class="product__others">
+        <div class="product__others-heading">CUSTOMER YANG MELIHAT PRODUK INI JUGA MELIHAT</div>
+
+        <amp-carousel autoplay="" height="240" layout="fixed-height" type="carousel" width="auto" class="i-amphtml-element i-amphtml-layout-fixed-height i-amphtml-layout-size-defined i-amphtml-layout" style="height: 220px;">
+                    
+          <div class="i-amphtml-scrollable-carousel-container product__item clearfix">
+
+            <a class="product__item-wrapper amp-carousel-slide amp-scrollable-carousel-slide" href="" role="listitem" target="_top">
+              <amp-img height="128" src="https://www.static-src.com/wcsstore/Indraprastha/images/catalog/medium//1127/vespa_vespa-original-touch-plus-helmet---white-black-helm_full02.jpg" width="128" class="i-amphtml-element i-amphtml-layout-fixed i-amphtml-layout-size-defined i-amphtml-layout" style="width: 156px; height: 159px;"></amp-img>
+              <div class="product__item-info">
+                <div class="product__item-name">
+                  Vespa Original Touch Plus Helmet - White Black
+                </div>
+                <div class="product__item-price">
+                  <div class="product__item-price--normal">Rp 4.600.000</div>
+                  <div class="product__item-price--discount">Rp 4.200.000</div>
+                </div>
+              </div>
+            </a>
+            <a class="product__item-wrapper amp-carousel-slide amp-scrollable-carousel-slide" href="" role="listitem" target="_top">
+              <amp-img height="128" src="https://www.static-src.com/wcsstore/Indraprastha/images/catalog/medium//1127/vespa_vespa-original-touch-plus-helmet---white-black-helm_full02.jpg" width="128" class="i-amphtml-element i-amphtml-layout-fixed i-amphtml-layout-size-defined i-amphtml-layout" style="width: 156px; height: 159px;"></amp-img>
+              <div class="product__item-info">
+                <div class="product__item-name">
+                  Vespa Original Touch Plus Helmet - White Black
+                </div>
+                <div class="product__item-price">
+                  <div class="product__item-price--normal">Rp 4.600.000</div>
+                  <div class="product__item-price--discount">Rp 4.200.000</div>
+                </div>
+              </div>
+            </a>
+            <a class="product__item-wrapper amp-carousel-slide amp-scrollable-carousel-slide" href="" role="listitem" target="_top">
+              <amp-img height="128" src="https://www.static-src.com/wcsstore/Indraprastha/images/catalog/medium//1127/vespa_vespa-original-touch-plus-helmet---white-black-helm_full02.jpg" width="128" class="i-amphtml-element i-amphtml-layout-fixed i-amphtml-layout-size-defined i-amphtml-layout" style="width: 156px; height: 159px;"></amp-img>
+              <div class="product__item-info">
+                <div class="product__item-name">
+                  Vespa Original Touch Plus Helmet - White Black
+                </div>
+                <div class="product__item-price">
+                  <div class="product__item-price--normal">Rp 4.600.000</div>
+                  <div class="product__item-price--discount">Rp 4.200.000</div>
+                </div>
+              </div>
+            </a>
+            <a class="product__item-wrapper amp-carousel-slide amp-scrollable-carousel-slide" href="" role="listitem" target="_top">
+              <amp-img height="128" src="https://www.static-src.com/wcsstore/Indraprastha/images/catalog/medium//1127/vespa_vespa-original-touch-plus-helmet---white-black-helm_full02.jpg" width="128" class="i-amphtml-element i-amphtml-layout-fixed i-amphtml-layout-size-defined i-amphtml-layout" style="width: 156px; height: 159px;"></amp-img>
+              <div class="product__item-info">
+                <div class="product__item-name">
+                  Vespa Original Touch Plus Helmet - White Black
+                </div>
+                <div class="product__item-price">
+                  <div class="product__item-price--normal">Rp 4.600.000</div>
+                  <div class="product__item-price--discount">Rp 4.200.000</div>
+                </div>
+              </div>
+            </a>
+
+          </div>
+        </amp-carousel>
+          
+      </div>
+    </section>
+
+    <div class="block"></div>
+    <div class="product__action">
+      <a class="button button--orange" href="">Beli sekarang</a>
+      <a class="button button--plain" href="">
+        <span>Lihat detail</span>
+        <span><i class="f-right arrow">&nbsp;</i></span>
+      </a>
     </div>
-
-    <div class="product">
-        <amp-img srcset="https://www.static-src.com/4.11.0/resources/images/assets/default_brand_icon_mobile.png" width="55" height="55" alt="brand" class="brand">
-        </amp-img>
-    	<div class="name"> 
-    		Samsung Galaxy A5 2017 New Edition SM-A520 Smartphone - Black [32 GB/3 GB]
-    	</div>
+      
+    <!-- xxx - start -->
+    <div class="">
+      xx
     </div>
+    <!-- xxx - end -->
 
-    <div class="clearfix pad-lr-5">
-    	<div class="f-left">
-    		Brand : <a href="https://www.blibli.com/anchor/samsung">Samsung</a>
-    	</div>
-    	<div class="f-right">
-    		<a href="#write-review">Tulis Ulasan</a>
-    	</div>
-    </div>
-
-    <amp-carousel class="product__img" width="290" height="290" layout="responsive" type="slides" autoplay>
-        <a href="#">
-            <amp-img src="https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//1270/samsung_samsung-galaxy-a5-2017-new-edition-sm-a520-smartphone---black---3gb---32-gb--_full03.jpg" layout="fill" alt="product 1" attribution="visualhunt"></amp-img>
-        </a>
-        <a href="#">
-            <amp-img src="https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//1271/samsung_samsung-galaxy-a5-2017-new-edition-sm-a520-smartphone---black---3gb---32-gb--_full04.jpg" layout="fill" alt="product 3" attribution="visualhunt"></amp-img>
-        </a>
-        <a href="#">
-            <amp-img src="https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//1272/samsung_samsung-galaxy-a5-2017-new-edition-sm-a520-smartphone---black---3gb---32-gb--_full05.jpg" layout="fill" alt="product 2" attribution="visualhunt"></amp-img>
-        </a>
-    </amp-carousel>
-
-    <div class="clearfix pad-lr-5">
-    	Harga : <span class="price__orange">Rp 4,586,888</span>
-    </div>
-
-    <footer class="footer">
-    	<a class="addtocart" href="#addtocart">
-    		BELI SEKARANG
-    	</a>
-    </footer>
-
-    <amp-analytics type="googleanalytics">
-        <script type="application/json">
-        {
-            "vars": {
-                "account": "UA-80609902-1"
-            },
-            "triggers": {
-                "default pageview": {
-                    "on": "visible",
-                    "request": "pageview",
-                    "vars": {
-                        "title": "{{title}}"
-                    }
-                }
-            }
-        }
-        </script>
-    </amp-analytics>
-</body>
-
+  </article>
+  </body>
 </html>
