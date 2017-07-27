@@ -7,7 +7,7 @@ gulp.task('serve', function() {
         port: 3000,
         server: "./"
     });
-    gulp.watch("./*.html").on('change', browserSync.reload);
+    gulp.watch("./**/*.html").on('change', browserSync.reload);
 });
 
 gulp.task('build:dev', ['serve']);
